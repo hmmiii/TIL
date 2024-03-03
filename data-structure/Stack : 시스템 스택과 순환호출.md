@@ -35,6 +35,7 @@ print(factorial_iter(5))
 
 - 팩토리얼을 순환 호출로 해결하는 것은 가장 기본적인 순환 호출 방법이다.
 - 팩토리얼은 1부터 n까지 차례로 곱하는데, 결국 (n-1)*n이 n!이라는 것을 그대로 옮기기만 해도 해결된다.
+- 즉, 순환되는 규칙을 이해한 후 공통되는 규칙만 넣어주면 된다.
 
 ```python
 def factorial(n): # 순환구조(재귀호출)로 구현한 팩토리얼.
@@ -45,6 +46,53 @@ def factorial(n): # 순환구조(재귀호출)로 구현한 팩토리얼.
     
 print("순환 구조 팩토리얼 : ", end='')
 print(factorial(5))
+```
+
+#### 순환 호출로 해결한 하노이의 탑
+
+- 복잡한 코드여서 스택을 따라가면서 이해하려고 하니 이해하기가 어려웠다.
+- 팩토리얼에서 이해한 공통된 규칙을 이해한 후 대입한다는 식으로 하는 편이 낫다.
+- 하노이의 탑 문제에서는, A가 출발, B가 임시, C가 목표 막대일때, 세 가지 규칙을 따른다.
+    1. A에 있는 n-1개의 원판을 C를 임시 막대로 삼아 B로 이동
+    2. A에 하나 남은 원판을 C로 이동
+    3. B에 있는 n-1개의 원판을 A를 임시 막대로 삼아 C로 이동
+
+```python
+def hanoi_tower(n, fr, tmp, to):
+    """
+    하노이 탑 문제를 해결하는 함수
+
+    Parameters:
+    - n (int): 원판의 수
+    - fr (str): 시작 막대
+    - tmp (str): 임시 막대
+    - to (str): 목표 막대
+    """
+    
+    if(n==1):
+        print("원판 1: %s --> %s" % (fr,to)) # 순환 호출을 멈추는 부분. 원판이 하나라면 바로 이동.
+    else:
+        hanoi_tower(n-1, fr, to, tmp) # 1단계 : fr막대에 있는 n-1개의 원판을 to 막대를 이용해 tmp로 옮김
+        print("원판 %d: %s --> %s" % (n,fr,to)) # 2단계 : fr에 있는 하나의 원판을 바로 to로 옮김.
+        hanoi_tower(n-1, tmp, fr, to) # 3단계 : 마지막으로 tmp에 있는 n-1개의 원판을 fr을 이용해 to로 옮김
+
+hanoi_tower(4, 'A', 'B', 'C')
+```
+
+#### 순환 호출로 문자열 뒤집기
+
+- 이 문제 또한 공통된 규칙을 적용하며 문제를 줄여나간다.
+- 현재 마지막 단어를 출력한다라는 규칙을 적용하며 msg와 len을 줄여나간다.
+
+```python
+def printReverse(msg, len):
+    if len>0:
+        print(msg[len-1])
+        printReverse(msg, len-1)
+
+instr = "자료구조"
+printReverse(instr, len(instr))
+print()
 ```
 
 ### 참고 도서
