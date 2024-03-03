@@ -95,6 +95,7 @@ printReverse(instr, len(instr))
 print()
 ```
 
-### 참고 도서
+### 참고 자료
 
-[자료구조와 알고리즘 with 파이썬](https://www.yes24.com/Product/Goods/123451810)
+- [자료구조와 알고리즘 with 파이썬](https://www.yes24.com/Product/Goods/123451810)
+- [하노이 탑(Tower of Hanoi) 재귀호출 코드 구현](https://www.youtube.com/watch?v=vq7dpFWpwAE)
