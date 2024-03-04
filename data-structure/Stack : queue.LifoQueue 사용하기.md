@@ -1,13 +1,13 @@
-## queue.LifoQueue 사용하기
+# queue.LifoQueue 사용하기
 
-### queue모듈의 LifoQueue 클래스로 Stack구현이 가능하다.
+## queue모듈의 LifoQueue 클래스로 Stack구현이 가능하다.
 
 - 항상 스택을 구현할 때, 클래스를 직접 구현할 필요는 없다. 파이썬 queue모듈의 LifoQueue클래스를 이용하면 간편하게 구현이 가능하다.
 - 클래스명이 Stack이 아닌 LifoQueue인 것에 주의.
 
-#### LifoQueue로 Stack 대체 방법
+### LifoQueue로 Stack 대체 방법
 
-##### queue 모듈 사용하기
+#### queue 모듈 사용하기
 
 queue모듈을 import 하는 작업이 필요하다.
 
@@ -24,7 +24,7 @@ queue모듈을 import 하는 작업이 필요하다.
 |isFull()|full()|s.full()|
 |peek()|queue[] 사용|s.queue[-1]|
 
-#### 코드
+### 코드
 
 ```python
 import queue # 파이썬 큐 모듈 포함
@@ -45,6 +45,6 @@ while not s.empty(): # 스택이 공백 상태가 아니라면
 print()
 ```
 
-### 참고 도서
+## 참고 자료
 
 [자료구조와 알고리즘 with 파이썬](https://www.yes24.com/Product/Goods/123451810)
